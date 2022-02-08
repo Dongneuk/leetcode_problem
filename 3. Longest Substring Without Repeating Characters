@@ -10,8 +10,12 @@ class Solution(object):
         output = 0
         
         for r in range(len(s)):
+            # 만약 s[r]이 딕셔너리에 없으면, 창문 크기를 늘린다.
             if s[r] not in d:
                 output = max(r-l+1, output)
+            # 만약 s[r]이 딕셔너리에 있으면, 두가지 케이스 있다.
+                # 1. 현재 창문에 s[r]이 있으면, left pointer를 d[s[r]] + 1로 옮긴다.
+                # 2. 현재 창문에 s[r]이 없으면, 그대로 창문 크기를 늘린다.
             else:
                 if d[s[r]] < l:
                     output = max(r-l+1, output)
@@ -21,7 +25,7 @@ class Solution(object):
         return output
         
         
-# 시간복잡도는 O(n). n은 len(s)이다. len(s) 만큼 interate 하기 때문.
+# 시간복잡도는 O(n)이다. n은 input string의 길이이고, n번 iterate 하기 때문이다.
         
                 
             
