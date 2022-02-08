@@ -1,0 +1,29 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        d = {}
+        l = 0
+        output = 0
+        
+        for r in range(len(s)):
+            if s[r] not in d:
+                output = max(r-l+1, output)
+            else:
+                if d[s[r]] < l:
+                    output = max(r-l+1, output)
+                else:
+                    l = d[s[r]] + 1
+            d[s[r]] = r
+        return output
+        
+        
+# 시간복잡도는 O(n). n은 len(s)이다. len(s) 만큼 interate 하기 때문.
+        
+                
+            
+        
+        
