@@ -1,0 +1,33 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        
+        res = ''
+        for i in range(len(s)):
+            
+            #odd case
+            tmp = helper(s, i, i)
+            if len(tmp) > len(res):
+                res = tmp
+            
+            #even case
+            tmp = helper(s, i, i+1)
+            if len(tmp) > len(res):
+                res = tmp
+        return res
+            
+            
+    
+#스트링이 palindrome인지 찾게 도와주는 함수.    
+def helper(s, l, r):
+    while l >= 0 and r < len(s) and s[l] == s[r]:
+        l -= 1
+        r += 1
+    return s[l+1: r]
+
+
+# 시간복잡도는 O(n^2)이다. 이유를 들자하면 만약 input string이 'aaaaaaaa'와 같이
+#  한 문자로 이루어진 스트링이라면, 매번 전 스트링을 순회하여아 한다.
