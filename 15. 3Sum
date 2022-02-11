@@ -1,0 +1,42 @@
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        # nums를 sort한다.
+        nums.sort()
+        res = []
+        
+        for i in range(len(nums)-2):
+            # i > 0 조건을 추가하지 않으면 [0,0,0]의 케이스에 output이 나오지 않는다.
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            l = i+1
+            r = len(nums) - 1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if s < 0:
+                    l += 1
+                elif s > 0:
+                    r -= 1
+                else:
+                    res.append([nums[i], nums[l], nums[r]])
+                    while l < r and nums[l] == nums[l+1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r-1]:
+                        r -= 1
+                    l += 1
+                    r -= 1
+        return res
+            
+# 시간복잡도는 O(N^2)이다. 
+# nums를 sort 하는데 O(NlogN)이 들지만, for과 while로 인해 total O(N^2 + NlongN)이기 때문이다.
+            
+            
+        
+        
+        
+            
+        
+        
