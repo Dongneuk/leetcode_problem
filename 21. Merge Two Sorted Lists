@@ -12,7 +12,7 @@ class Solution(object):
         """
         dummy = cur = ListNode(0)
         
-        
+        # list1 or list2를 하면, 둘중 하나가 []이 되는순간 NoneType이 되버림.
         while list1 and list2:
             if list1.val < list2.val:
                 cur.next = list1
