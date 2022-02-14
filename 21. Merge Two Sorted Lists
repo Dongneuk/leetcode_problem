@@ -1,0 +1,29 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeTwoLists(self, list1, list2):
+        """
+        :type list1: Optional[ListNode]
+        :type list2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        dummy = cur = ListNode(0)
+        
+        
+        while list1 and list2:
+            if list1.val < list2.val:
+                cur.next = list1
+                list1 = list1.next
+            else:
+                cur.next = list2
+                list2 = list2.next
+            cur = cur.next
+        cur.next = list1 or list2
+        
+        return dummy.next
+
+
+# 매 iteration l1이나 l2 둘 중 하나는 반드시 증가되기 때문에, 시간복잡도는 두 리스트의 합인 O(N+M).
