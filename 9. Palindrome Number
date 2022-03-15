@@ -1,0 +1,12 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        
+        a = str(x)[::-1]
+        
+        return str(x)==a
+    
+    ## 시간복잡도는 O(n).
