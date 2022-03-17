@@ -1,0 +1,47 @@
+class Solution(object):
+    def threeSumClosest(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        
+        nums.sort()
+        answer = nums[0] + nums[1] + nums[2]
+        
+        for i in range(len(nums) - 2):
+            l = i+1
+            r = len(nums)-1
+            
+            while l < r:
+                result = nums[i] + nums[l] + nums[r]
+                
+                if result == target:
+                    return result
+                
+                # 좀더 근접한 수를 answer로 설정하기.
+                if abs(result-target) < abs(answer - target):
+                    answer = result
+                
+                if result < target:
+                    l += 1
+                elif result > target:
+                    r -= 1
+                    
+        return answer
+
+
+## -> for 안에서 while이 돌기때문에 O(N*N), 즉 time complexity는 O(N^2)이다.
+## sort 함수는 O(N)이기 때문에 없어짐.
+## two pointers, array, sort.
+                    
+                
+
+                    
+                    
+            
+            
+            
+        
+        
+        
