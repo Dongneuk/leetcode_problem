@@ -25,7 +25,7 @@ class Solution(object):
     
 ## Dynamic Programming으로, 사실 fibonacci와 비슷함.
 ## 시간복잡도는 O(N).
-        
+## Dynamic Programming, Memoization
         
         
         
