@@ -1,0 +1,24 @@
+class Solution(object):
+    def addToArrayForm(self, num, k):
+        """
+        :type num: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        s = ""
+        
+        for i in num:
+            s += str(i)
+        
+        res = int(s) + k
+        
+        res_list = list(map(int, str(res))) 
+        
+        return res_list
+    
+    
+## 시간복잡도는 O(N).
+## Array, Math
+
+        
+        
