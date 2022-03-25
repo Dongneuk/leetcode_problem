@@ -1,0 +1,47 @@
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        
+        res = []
+        
+        def dfs(index, target, path):
+            if target < 0:
+                return True ## backtracking
+            if target == 0:
+                res.append(path)
+                return False
+            for i in range(index, len(candidates)):
+                dfs(i, target-candidates[i], path+[candidates[i]])
+                
+        dfs(0, target, [])
+        
+        return res
+
+
+## dfs, Backtracking, array
+## time complextiy = O(n^2)
+                
+            
+            
+        
+        
+                
+            
+                
+                                
+                
+    
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
