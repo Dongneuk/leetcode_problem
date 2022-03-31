@@ -14,3 +14,4 @@ class Solution(object):
         
 ## time complexity = O(n^2)
 ## Dynamic Programming
+## 파스칼의 기본 원리에 대해 이해.
