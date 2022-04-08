@@ -1,0 +1,22 @@
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """''
+        
+        if not root:
+            return 0
+        queue = collections.deque([(root, 1)])
+
+        while queue:
+            cur, val = queue.popleft()
+           
+            if cur.left:
+                queue.append((cur.left, val+1))
+            if cur.right:
+                queue.append((cur.right, val+1))
+        return val
+
+## queue 안에서 cur.left와 cur.right 나누고 BFS로 순회하며 val 추가.
+## DFS, Binary Tree
