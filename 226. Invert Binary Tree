@@ -1,0 +1,22 @@
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        
+        deque = collections.deque([(root)])
+        
+        while deque:
+            node = deque.popleft()
+            
+            if node:
+                node.left, node.right = node.right, node.left
+                
+                deque.append(node.left)
+                deque.append(node.right)
+        
+        return root
+
+## Tree, Binary Tree, BFS
+## TC: O(N).
