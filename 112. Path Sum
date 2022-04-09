@@ -1,0 +1,41 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def hasPathSum(self, root, targetSum):
+        """
+        :type root: TreeNode
+        :type targetSum: int
+        :rtype: bool
+        """
+        
+        if not root:
+            return 0
+
+        stack = [(root, root.val)]
+        
+        while stack:
+            cur, val = stack.pop()
+            
+            if val == targetSum and not cur.left and not cur.right:
+                return True
+            
+            if cur.left:
+                stack.append((cur.left, val + cur.left.val))
+            
+            if cur.right:
+                stack.append((cur.right, val + cur.right.val))
+        
+        return False
+    
+## DFS, Tree, Binary Tree
+## TC: O(N) where N is the number of nodes.
+
+        
+        
+        
+        
+        
