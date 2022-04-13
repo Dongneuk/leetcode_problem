@@ -1,0 +1,29 @@
+class Solution(object):
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        
+        
+        
+        coverage = 0
+        destination = len(nums) - 1
+        
+        for i in range(len(nums)):
+             
+            if i + nums[i] >= coverage:
+                coverage = i + nums[i]
+            
+            ## 최대 커버리지 index까지 도달했다면 break.
+            if i == coverage:
+                break
+            
+            
+            
+        return coverage >= destination
+            
+           
+            
+## Greedy, Dynamic Programming
+## tc: O(N). 
