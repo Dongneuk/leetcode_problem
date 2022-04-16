@@ -1,0 +1,64 @@
+class Solution(object):
+    def findPoisonedDuration(self, timeSeries, duration):
+        """
+        :type timeSeries: List[int]
+        :type duration: int
+        :rtype: int
+        """
+        
+        
+        time = 0
+        
+        for i in range(len(timeSeries) - 1):
+            time += min(timeSeries[i+1] - timeSeries[i], duration)
+        
+        # edge case 마지막에 더해주는 것 있지말기.
+        return time + duration
+
+
+
+## TC: O(N)
+## SC: O(1)
+
+## Simulation
+            
+            
+            
+            
+            
+        
+                
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                
+            
+            
+            
+            
+            
+            
+            
+            
+    
+        
+        
+        
+        
+        
+        
+        
