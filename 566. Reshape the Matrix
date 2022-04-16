@@ -1,0 +1,31 @@
+class Solution(object):
+    def matrixReshape(self, mat, r, c):
+        """
+        :type mat: List[List[int]]
+        :type r: int
+        :type c: int
+        :rtype: List[List[int]]
+        """
+        
+        
+        ## if the operation is not possible, return the original matrix.
+        if r*c != len(mat) * len(mat[0]):
+            return mat
+        
+        queue = collections.deque()
+        
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                queue.append(mat[i][j])
+        
+        grid = [[0] * c for _ in range(r)]
+        
+        for i in range(r):
+            for j in range(c):
+                print(i, j)
+                grid[i%r][j%c] = queue.popleft()
+                
+        return grid
+        
+## TC: O(n^2)       
+        
