@@ -1,34 +1,23 @@
-from itertools import product
-
-from itertools import product
-
-class Solution(object):
-    def letterCombinations(self, digits):
-        """
-        :type digits: str
-        :rtype: List[str]
-        """
-        mapping = { '2': 'abc', '3': 'def', '4': 'ghi',
-                    '5': 'jkl', '6': 'mno', '7': 'pqrs',
-                    '8': 'tuv', '9': 'wxyz' }
-    
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
         
+        def dfs(index, path):
+            if len(path) == len(digits):
+                result.append(path)
+                return
         
-        cmb = [''] if digits else []
+            for i in range(index, len(digits)):
+                for j in dic[digits[i]]:
+                    dfs(i + 1, path+j)
         
-        for d in digits:
-            cmb = [p+q for p in cmb for q in mapping[d]]
-        return cmb
-    
-        # The result array는 max 4^n elements를 가질 것이기 때문에, 시간복잡도는 O(4^n) 이다.
-        # ex)
-        # 7 -> [p, q, r, s] (4 elements, 4^1)
-        # 77: -> [pp, pq, pr, ps, qp, qq, qr, qs ...] (4 * 4 elements, 4^2)
-        # 778: -> [ppw, ppx, ppy, ppz ...] (4 * 4 * 4 elements, 4^3)
-
+        dic = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs",
+              "8": "tuv", "9": "wxyz"}
         
-     
-            
-            
-            
+        result = []
         
+        if not digits:
+            return result
+        
+        dfs(0, "")
+        
+        return result
