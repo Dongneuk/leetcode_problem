@@ -21,3 +21,6 @@ class Solution:
         dfs(0, "")
         
         return result
+
+
+# 딕셔너리에 미리 입력 후 루프 돌리며 구현.
