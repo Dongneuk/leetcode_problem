@@ -12,3 +12,5 @@ class Solution:
             result.append((x, y))
         
         return result
+
+# heapq 사용
