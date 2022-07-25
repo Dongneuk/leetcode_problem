@@ -1,15 +1,12 @@
-class Solution(object):
-    def intersection(self, nums1, nums2):
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         
-        nums1 = set(nums1)
-        nums2 = set(nums2)
+        dic = set()
+        nums2.sort()
         
-        return list(nums1 & nums2)
-    
-## time complexity = O(N+M) where N = len(nums1), M = len(nums2).
+        for n1 in nums1:
+            i2 = bisect.bisect_left(nums2, n1)
+            if len(nums2) > i2 and n1 == nums2[i2]:
+                dic.add(n1)
         
+        return dic
