@@ -30,6 +30,7 @@ class Solution(object):
                     r -= 1
         return res
             
+            
 # 시간복잡도는 O(N^2)이다. 
 # nums를 sort 하는데 O(NlogN)이 들지만, for과 while로 인해 total O(N^2 + NlongN)이기 때문이다.
             
